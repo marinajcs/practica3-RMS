@@ -1,12 +1,14 @@
-/**
- * @file TCP_Server.java
- * @author marina
- */
 import com.github.sarxos.webcam.Webcam;
 import java.awt.image.BufferedImage;
 import java.net.*;
 import java.io.*;
 import javax.imageio.ImageIO;
+
+/**
+ * Servidor TCP
+ * 
+ * @author Marina J.
+ */
 
 class ServidorTCP {
 
@@ -18,7 +20,7 @@ class ServidorTCP {
             System.out.println("Cliente conectado");
 
             WebcamImg webcam = new WebcamImg();
-            BufferedImage image = webcam.getScreenshot();
+            BufferedImage image = webcam.takeWebcamPic();
             
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write(image, "jpg", baos);

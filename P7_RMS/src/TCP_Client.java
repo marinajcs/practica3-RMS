@@ -1,7 +1,3 @@
-/**
- * @file TCP_Client.java
- * @author marina
- */
 import com.github.sarxos.webcam.Webcam;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -11,6 +7,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+/**
+ * Cliente TCP
+ * 
+ * @author Marina J.
+ */
 
 class ClienteTCP {
 

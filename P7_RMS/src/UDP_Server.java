@@ -1,7 +1,3 @@
-/**
- * @file UDP_Server.java
- * @author marina
- */
 import com.github.sarxos.webcam.Webcam;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -14,6 +10,12 @@ import java.net.Socket;
 import java.util.Arrays;
 import javax.imageio.ImageIO;
 
+/**
+ * Servidor UDP
+ * 
+ * @author Marina J.
+ */
+
 public class UDP_Server {
 
     public static void main(String[] args) {
@@ -25,15 +27,6 @@ public class UDP_Server {
     }
 
     private UDP_Server(int port) {
-        /*  1. Creamos el socket
-            2. Esperamos un mensaje
-            3. Almacenamos dir. IP y puerto en el datagrama a enviar 4. Abrimos la cámara y capturamos una imagen
-            5. Copiamos la imagen a un stream (ByteArrayOutputStream)
-            Para ello, añadimos primero el número de filas (getHeight), luego el número de columnas (getWidth) y por último los pixeles RGB (getRGB)
-            6. Almacenamos en un array de bytes la información a transmitir
-            7. Transmitimos el número de datagramas que se van a enviar 8. Transmitimos los datagramas que contienen los datos de la
-            imagen (se recomienda usar la función sleep entre cada envío) 
-         */
         try {
             // 1. Creamos el socket
             DatagramSocket socket = new DatagramSocket(port);
@@ -51,7 +44,7 @@ public class UDP_Server {
 
             // 4. Abrimos la cámara y capturamos una imagen
             WebcamImg webcam = new WebcamImg();
-            BufferedImage image = webcam.getScreenshot();
+            BufferedImage image = webcam.takeWebcamPic();
             System.out.println("Captura de webcam realizada");
 
             /* 5. Copiamos la imagen a un stream (ByteArrayOutputStream)

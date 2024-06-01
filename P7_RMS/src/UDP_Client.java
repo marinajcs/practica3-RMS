@@ -1,13 +1,8 @@
-
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
-/**
- * @file UDP_Client.java
- * @author marina
- */
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -18,6 +13,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+/**
+ * Cliente UDP
+ * 
+ * @author Marina J.
+ */
 
 public class UDP_Client {
 
@@ -34,12 +35,6 @@ public class UDP_Client {
     }
 
     private UDP_Client(String dir, int port) {
-        /*  1. Creamos el socket
-            2. Enviamos un mensaje al servidor para pedir la imagen 3. Recibimos el número de datagramas que se va a recibir 4. Recibimos y almacenamos la información del servidor
-            5. Creamos un stream de bytes ByteArrayInputStream para ir leyendo la información recibida
-            6. Leemos el primer dato que es el número de filas
-            7. Leemos el segundo dato que es el número de columnas 8. Copiamos los pixeles recibidos a un objeto imagen 9. Representamos la imagen 
-         */
         try {
             // 1. Creamos el socket
             DatagramSocket socket = new DatagramSocket();
@@ -83,7 +78,7 @@ public class UDP_Client {
             int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
             for (int i = 0; i < pixels.length; i++) {
-                pixels[i] = dis.readInt(); // Leer cada pixel como un entero RGB
+                pixels[i] = dis.readInt();
             }
 
             // 9. Representamos la imagen

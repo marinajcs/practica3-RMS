@@ -1,11 +1,13 @@
-/**
- * @file SCTCP.java
- * @author marina
- */
 import java.awt.image.BufferedImage;
 import java.net.*;
 import java.io.*;
 import javax.imageio.ImageIO;
+
+/**
+ * Servidor concurrente TCP
+ * 
+ * @author Marina J.
+ */
 
 class SCTCP extends Thread {
     
@@ -18,7 +20,7 @@ class SCTCP extends Thread {
     public void run() {
         try {
             WebcamImg webcam = new WebcamImg();
-            BufferedImage image = webcam.getScreenshot();
+            BufferedImage image = webcam.takeWebcamPic();
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write(image, "jpg", baos);

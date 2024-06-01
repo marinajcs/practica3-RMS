@@ -1,7 +1,4 @@
-/**
- * @file WebcamImg.java
- * @author marina
- */
+
 import com.github.sarxos.webcam.Webcam;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -11,9 +8,15 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * Clase para gestionar la captura de imágenes a través de la webcam, su
+ * guardado y disposición por pantalla
+ *
+ * @author Marina J.
+ */
 public class WebcamImg {
 
-    public BufferedImage getScreenshot() {
+    public BufferedImage takeWebcamPic() {
         Webcam webcam = Webcam.getDefault();
         webcam.open();
         BufferedImage image = webcam.getImage();
@@ -37,7 +40,11 @@ public class WebcamImg {
         frame.setSize(image.getHeight(), image.getWidth());
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        
+        saveImg(image, filename);
+    }
 
+    public void saveImg(BufferedImage image, String filename) throws IOException {
         String img_path = "./imgs/" + filename + ".jpg";
         File imgFile = new File(img_path);
         int count = 1;
@@ -51,5 +58,5 @@ public class WebcamImg {
         ImageIO.write(image, "jpg", imgFile);
         System.out.println("Imagen guardada como: " + imgFile.getName());
     }
-
 }
+
